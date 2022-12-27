@@ -9,6 +9,11 @@ public class HelloController {
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Maybe you and I should settle it right here on the ring");
+        welcomeText.setText("Maybe you and I should settle it \n right here on the ring");
+    }
+
+    @FXML
+    protected void onThankYouButtonClick() {
+        System.out.printf("Don't touch me there ~");
     }
 }
