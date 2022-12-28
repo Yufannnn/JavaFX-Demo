@@ -14,6 +14,6 @@ public class HelloController {
 
     @FXML
     protected void onThankYouButtonClick() {
-        System.out.printf("Don't touch me there ~");
+        System.out.println("Don't touch me there ~");
     }
 }

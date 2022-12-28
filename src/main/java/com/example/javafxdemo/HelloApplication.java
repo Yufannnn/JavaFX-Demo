@@ -1,46 +1,40 @@
 package com.example.javafxdemo;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Stack;
 
-public class HelloApplication extends Application implements EventHandler<ActionEvent> {
+public class HelloApplication extends Application {
     public static void main(String[] args) {
         launch(args);
     }
 
     Button button;
+    Stage window;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage primaryStage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Faq Leather man");
-        stage.setScene(scene);
-        stage.show();
-
+        window = primaryStage;
+        Label label1 = new Label("Welcome to the Lords of the Locker Room");
+        Scene scene1 = new Scene(fxmlLoader.load(), 320, 240);
+        primaryStage.setTitle("Faq Leather man");
+        primaryStage.setScene(scene1);
         button = new Button();
         button.setText("Ah, thank you, sir");
-        // just looking for the handle method in the current class
-        button.setOnAction(this);
+
+        // actionEvent is a functional interface which can be replaced by a lambda expression
+        button.setOnAction(actionEvent -> System.out.println("Don't touch me there ~"));
+        primaryStage.show();
 
         StackPane layout = new StackPane();
         layout.getChildren().add(button);
-    }
-
-    @Override
-    public void handle(ActionEvent actionEvent) {
-        if(actionEvent.getSource()==button) {
-            System.out.println("Don't touch me there");
-        }
     }
 }
